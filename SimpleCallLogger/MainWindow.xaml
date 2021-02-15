@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SimpleCallLogger"
         mc:Ignorable="d"
-        Title="Simple Call Logger" Height="248.222" Width="420" WindowStartupLocation="CenterScreen" Background="#FFD3E6E8">
+        Title="Simple Call Logger" Height="248.222" Width="420" WindowStartupLocation="CenterScreen" Background="#FFD3E6E8" Loaded="W_MAIN_Loaded">
     <Grid Margin="0,0,3.333,-2.333">
         <Label x:Name="LAB_HEAD" Content="Simple Call Logger using WPF, SQLite &amp; C#" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontFamily="Verdana" Opacity="0.8"/>
         <TextBox x:Name="TB_CALLERNAME" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="92,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" FontFamily="Verdana" FontSize="10"/>
