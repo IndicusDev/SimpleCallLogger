@@ -77,14 +77,15 @@ namespace SimpleCallLogger
             
             //Open Connection
                 ///OBJ folder only being used to initial development and testing, production location would not be within solution folders
-            SQLiteConnection cnn = new SQLiteConnection("Data Source=C:\\Users\\Ross\\source\\repos\\SimpleCallLogger\\SimpleCallLogger\\obj\\SimpleCallLoggerDB.db");
+            SQLiteConnection cnn = new SQLiteConnection(CLS_SQL_COMMANDS.CONN_STRING);
             cnn.Open();
 
             //Get data
-            SQLiteCommand cmd = new SQLiteCommand("SELECT SERV_VERS FROM [T_SERV_VERS]")
+            SQLiteCommand cmd = new SQLiteCommand(CLS_SQL_COMMANDS.GetServVers)
             {
                 Connection = cnn
             };
+
             SQLiteDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);
@@ -120,7 +121,21 @@ namespace SimpleCallLogger
             ////////////////////////////
             ///Load data for controls///
             ////////////////////////////
-            
+
+            //Call Purpose
+            //Get data
+            cmd = new SQLiteCommand(CLS_SQL_COMMANDS.GetPurpose)
+            {
+                Connection = cnn
+            };
+            dr = cmd.ExecuteReader();
+            dt = new DataTable();
+            dt.Load(dr);
+
+            //Bind to Combobox
+            CMB_PURPOSE.ItemsSource = dt.Rows;
+            CMB_PURPOSE.DisplayMemberPath = ".[CALL_PURPOSE]";
+            CMB_PURPOSE.SelectedValuePath = ".[DB_ID]";
 
 
         }
